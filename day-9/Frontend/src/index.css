@@ -1,0 +1,131 @@
+*{
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  color: white;
+}
+
+html,body,#root{
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: #050505;
+  color: #f5f5f5;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+html{
+  background-color: black;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.note-create-form {
+  display: grid;
+  gap: 1rem;
+  width: min(100%, 640px);
+  background: rgba(18, 20, 29, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 1.5rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.24);
+  margin-bottom: 1.75rem;
+}
+
+.note-create-form input {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #f5f5f5;
+  padding: 0.95rem 1rem;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+.note-create-form input:focus {
+  border-color: rgba(99, 102, 241, 0.7);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
+  transform: translateY(-1px);
+}
+
+.note-create-form button {
+  cursor: pointer;
+  border: none;
+  border-radius: 16px;
+  padding: 0.95rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #6d5dfc, #2dd4bf);
+  color: white;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.note-create-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(45, 212, 191, 0.18);
+  opacity: 0.98;
+}
+
+.note-create-form button:active {
+  transform: translateY(0);
+}
+
+.notes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  width: min(100%, 640px);
+}
+
+.note {
+  background: linear-gradient(180deg, rgba(40, 42, 54, 0.96), rgba(18, 20, 29, 0.96));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.25);
+  padding: 1.6rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.note:hover {
+  transform: translateY(-4px);
+  border-color: rgba(99, 102, 241, 0.45);
+}
+
+.note-delete-button {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(248, 113, 113, 0.35);
+  border-radius: 14px;
+  background: rgba(248, 113, 113, 0.12);
+  color: #fecaca;
+  font-weight: 700;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.note-delete-button:hover {
+  background: rgba(248, 113, 113, 0.22);
+  border-color: rgba(248, 113, 113, 0.6);
+  transform: translateY(-1px);
+}
+
+.note-delete-button:active {
+  transform: translateY(0);
+}
+
+.note h1 {
+  font-size: clamp(1.25rem, 2vw, 1.8rem);
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+.note p {
+  line-height: 1.75;
+  color: #d8d8d8;
+}
