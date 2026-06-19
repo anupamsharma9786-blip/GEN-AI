@@ -14,23 +14,6 @@ const imageKit = new ImageKit({
 
 async function createPostController(req,res){
 
-    const token = req.cookies.token
-    
-    if(!token){
-        return res.status(401).json({
-            message: "Token Invalid , Unauthorized access"
-        })
-    }
-
-    let decoded = null;
-
-    try{
-        decoded = jwt.verify(token,process.env.JWT_SECRET)
-    } catch(err){
-        return res.status(401).json({
-            message: "User not Authorized"
-        })
-    }
 
     const file = await imageKit.files.upload({
         file: await toFile(Buffer.from(req.file.buffer), 'file'),
@@ -41,7 +24,7 @@ async function createPostController(req,res){
     const post = await postModel.create({
         caption: req.body.caption,
         imgUrl: file.url,
-        user: decoded.id
+        user: req.user.id
 
     })
 
@@ -53,26 +36,8 @@ async function createPostController(req,res){
 
 async function getPostController(req,res){
 
-    const token = req.cookies.token
-    
-    if(!token){
-        return res.status(401).json({
-            message: "Token Invalid , Unauthorized access"
-        })
-    }
-
-    let decoded = null;
-
-    try{
-        decoded = jwt.verify(token,process.env.JWT_SECRET)
-    } catch(err){
-        return res.status(401).json({
-            message: "User not Authorized"
-        })
-    }
-
     const posts = await postModel.find({
-        user: decoded.id
+        user: req.user.id
     })
 
     return res.status(200).json({
@@ -82,24 +47,6 @@ async function getPostController(req,res){
 }
 
 async function getPostDetailsController(req,res){
-
-    const token = req.cookies.token
-    
-    if(!token){
-        return res.status(401).json({
-            message: "Token Invalid , Unauthorized access"
-        })
-    }
-
-    let decoded = null;
-
-    try{
-        decoded = jwt.verify(token,process.env.JWT_SECRET)
-    } catch(err){
-        return res.status(401).json({
-            message: "User not Authorized"
-        })
-    }
 
     const postId = req.params.postId
     
@@ -111,11 +58,11 @@ async function getPostDetailsController(req,res){
         })
     }
 
-    const isValidUser = post.user.toString() == decoded.id.toString()
+    const isValidUser = post.user.toString() == req.user.id.toString()
 
     if(!isValidUser){
         return res.status(403).json({
-            message: "Forbidden content"
+            message: "Forbidden content" 
         })
     }
 
