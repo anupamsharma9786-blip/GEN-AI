@@ -1,7 +1,7 @@
 const express = require('express')
 const postModel = require('../model/post.model')
-const ImageKit = require('@imagekit/nodejs')
-const {toFile} = require('@imagekit/nodejs')
+const ImageKit = require('@imagekit/nodejs/index.js')
+const {toFile} = require('@imagekit/nodejs/index.js')
 const jwt = require('jsonwebtoken')
 const likeModel = require('../model/like.model')
 
