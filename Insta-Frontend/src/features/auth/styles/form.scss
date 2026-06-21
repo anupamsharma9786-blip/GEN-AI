@@ -9,15 +9,15 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #FFF8DC;
+  background: #0a0e27;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .form-container {
-  background: #FFFACD;
+  background: #1a1f3a;
   padding: 50px 40px;
   border-radius: 30px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   border: 2px solid #FFD700;
   max-width: 420px;
   width: 100%;
@@ -27,7 +27,7 @@ main {
   h1 {
     font-size: 48px;
     font-weight: 900;
-    color: #B8860B;
+    color: #FFD700;
     text-align: center;
     margin-bottom: 10px;
     letter-spacing: 2px;
@@ -36,7 +36,7 @@ main {
 
   h2 {
     font-size: 28px;
-    color: #8B7500;
+    color: #e0e0e0;
     text-align: center;
     margin-bottom: 40px;
     font-weight: 600;
@@ -67,19 +67,19 @@ main {
     border-radius: 15px;
     font-size: 16px;
     font-family: inherit;
-    background: #FFFFF0;
-    color: #333;
+    background: #242f4d;
+    color: #e0e0e0;
     transition: all 0.3s ease;
 
     &::placeholder {
-      color: #B8860B;
+      color: #b0b0b0;
       font-weight: 500;
     }
 
     &:focus {
       outline: none;
       border-color: #FFA500;
-      background: #FFFFF0;
+      background: #2a3759;
       transform: translateY(-2px);
     }
 
@@ -99,19 +99,28 @@ main {
     letter-spacing: 1.5px;
     cursor: pointer;
     background: #FFD700;
-    color: #333;
+    color: #0a0e27;
     transition: all 0.3s ease;
     margin-top: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
 
     &:hover {
       background: #FFA500;
-      color: white;
       transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 165, 0, 0.4);
     }
 
     &:active {
       transform: translateY(0);
+    }
+  }
+
+  .toggleForm {
+    text-align: center;
+    padding-top: 0.7rem;
+
+    .link {
+        color: yellow;
     }
   }
 }
