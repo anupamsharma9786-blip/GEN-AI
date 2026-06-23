@@ -107,9 +107,35 @@ async function likePostController(req,res) {
 
 }
 
+async function getFeedController(req,res) {
+    const user = req.user
+
+    const posts = await Promise.all((await postModel.find().populate("user").lean())
+    .map(async (post) =>{
+
+        const isLiked = await likeModel.findOne({
+            post: post._id,
+            user: user.username
+        })
+        console.log(post)
+
+        return{
+            ...post,isLiked: !!isLiked
+        }
+
+    }))
+
+    res.status(200).json({
+        message: "Feed fetched successfully",
+        posts
+    })
+
+}
+
 module.exports = {
     createPostController,
     getPostController,
     getPostDetailsController,
-    likePostController
+    likePostController,
+    getFeedController
 }

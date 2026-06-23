@@ -25,7 +25,7 @@ const Login = () => {
         
     }
 
-    if(loading && user){
+    if(loading){
         return <h1>Loading...</h1>
     }
 
