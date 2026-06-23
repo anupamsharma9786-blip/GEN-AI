@@ -7,19 +7,7 @@ const Register = () => {
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("second")
     const [password, setPassword] = useState("")
-    
-    async function handleSubmit(e){
-        e.preventDefault()
-        const response = await axios.post("http://localhost:3000/api/auth/register", { 
-            username: username,
-            email: email,
-            password: password
-        },{
-            withCredentials: true
-        })
-
-        console.log(response.data)
-    }
+     
 
 
     return (
